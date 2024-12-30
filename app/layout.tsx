@@ -1,28 +1,20 @@
-import './globals.css';
-import Link from 'next/link';
-import { ReactNode } from 'react';
-import Header from './Header';
-
 export const metadata = {
-  title: 'Moon Moverz',
-  description: 'Moon Moverz staking platform',
+  title: "Moon Moverz",
+  description: "Moon Moverz staking platform",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+import Web3ProviderWrapper from "./Web3ProviderWrapper";
 
+
+
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
-        {/* Header */}
-        <Header/>
-        {/* Main Content */}
-        <main>
-          {children}
-        </main>
+        {/* Wrap with Web3Provider */}
+        <Web3ProviderWrapper>{children}</Web3ProviderWrapper>
+        
+
       </body>
     </html>
   );
